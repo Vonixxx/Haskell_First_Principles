@@ -4,6 +4,8 @@ Ongoing project wherein I attempt to solve each exercise in the book "Haskell fr
 Each Chapter has various segments with exercises, with arbitrary names such as "Heal the Sick", or "A Head Code".
 The files in each directory found in this repository are named after those exercise blocks. The format:
 Ex.(n-segment)(title).hs.
+At the end of each chapter also lies a generic section named "Chapter Exercises", where various concepts are utilised
+instead of specific ones as in the prior segments.
 
 The segments where the Book requires using the REPL are solved by using comments with the answer within.
 
