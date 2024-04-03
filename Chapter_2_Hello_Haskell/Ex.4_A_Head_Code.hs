@@ -2,10 +2,9 @@
 -- A Head Code --
 -----------------
 
--- First, determine in your head what the following expressions
--- will return, then validate your assumptions in the REPL.
--- These examples are prefixed with let, because they are
--- not declarations, they are expressions:
+-- Determine in your head what the following expressions
+-- will return.These examples are prefixed with let,
+-- because they are not declarations, they are expressions:
 
 -- 1.
 -- let x = 5 in x
@@ -27,10 +26,7 @@
 
 -- Returns 6.
 
--- Above, you entered some let expressions into your REPL to eval-
--- uate them. Now, we’re going to open a file and rewrite some let
--- expressions using where declarations.
--- Rewrite with where clauses:
+-- Rewrite the following examples with where clauses:
 
 -- 1.
 -- let x = 3; y = 1000 in x * 3 + y

@@ -1,9 +1,11 @@
 # Information
 Ongoing project wherein I attempt to solve each exercise in the book "Haskell from First Principles".
-Each Chapter has various blocks of exercises spread throughout, with arbitrary names such as "Heal the Sick",
-or "A Head Code". The files in each Chapter directory found in this repository are named after those exercise blocks.
-So the format is like this: Ex.(n-block)(title).hs.
 
-I try to use source file solutions where possible, since some exercises are meant solely for the REPL.
-The places where I do solve them using the REPL, though, I just place the correct solution as a comment underneath
-the problem.
+Each Chapter has various segments with exercises, with arbitrary names such as "Heal the Sick", or "A Head Code".
+The files in each directory found in this repository are named after those exercise blocks. The format:
+Ex.(n-segment)(title).hs.
+
+The segments where the Book requires using the REPL are solved by using comments with the answer within.
+
+The problems provided are also rephrased, since the ones in the Book have some fluff to them.
+Such as "Check your results in the REPL" or "Name your function x".

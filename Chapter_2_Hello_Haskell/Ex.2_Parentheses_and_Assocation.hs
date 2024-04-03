@@ -12,6 +12,8 @@ import Text.Printf ( printf )
 -- a) 8 + 7 * 9
 -- b) (8 + 7) * 9
 
+-- False
+
 oneA :: Float
 oneA = 8 + 7 * 9
 
@@ -22,6 +24,8 @@ oneB = (8 + 7) * 9
 -- a) perimeter x y = x * 2 + y * 2
 -- b) perimeter x y = (x * 2) + (y * 2)
 
+-- True
+
 twoA :: Integer -> Integer -> Float
 twoA x y = fromInteger (x * 2 + y * 2)
 
@@ -31,6 +35,8 @@ twoB x y = fromInteger ((x * 2) + (y * 2))
 -- 3.
 -- a) f x = x / 2 + 9
 -- b) f x = x / (2 + 9)
+
+-- False
 
 threeA :: Integer -> Float
 threeA x = fromInteger x / 2 + 9
