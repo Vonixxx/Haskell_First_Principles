@@ -2,38 +2,46 @@
 -- Scope --
 -----------
 
--- 1.
--- These lines of code are from a REPL session. Is y in scope for z?
+-------
+-- 1 --
+-------
+-- Is y in scope for z
+
 -- Prelude> x = 5
 -- Prelude> y = 7
 -- Prelude> z = x * y
 
--- True
+-- Yes
 
--- 2.
--- These lines of code are from a REPL session. Is h in scope for g?
--- Go with your gut here:
+-------
+-- 2 --
+-------
+-- Is h in scope for g
+
 -- Prelude> f = 3
 -- Prelude> g = 6 * f + h
 
--- False
+-- No
 -- Reason: h is undefined
 
--- 3.
--- This code sample is from a source file. Is everything we need to
--- execute area in scope?
+-------
+-- 3 --
+-------
+-- Is everything we need to execute in scope
 -- r      = d / 2
--- area d = pi * (r * r)
+-- three d = pi * (r * r)
 
--- False
+-- No
 -- Reason:
-area d = pi * (r * r)
-         where r = d / 2
+three :: Float -> Float
+three d = pi * (r * r)
+          where r = d / 2
 
--- 4.
--- This code is also from a source file. Now, are r and d in scope
--- for area?
--- area d = pi * (r * r)
--- where r = d / 2
+-------
+-- 4 --
+-------
+-- Are r and d in scope
+-- four d = pi * (r * r)
+--          where r = d / 2
 
--- True
+-- Yes

@@ -1,78 +1,98 @@
 ----------------------
 -- Parenthesization --
 ----------------------
+-- Parenthesize the following
+-- without changing the results
 
--- Given what we know about the precedence of *, +, and ^, how can
--- we parenthesize the following expressions more explicitly without
--- changing their results?
-
--- 1.
+-------
+-- 1 --
+-------
 -- 2 + 2 * 3 - 1
 
 one :: Int
-one = (2 + 2) * (3 - 1)
+one = 2 + (2 * 3) - 1
 
--- 2.
+-------
+-- 2 --
+-------
 -- (^) 10 $ 1 + 1
 
 two :: Int
 two = 10 ^ (1 + 1)
 
--- 3.
+-------
+-- 3 --
+-------
 -- 2 ^ 2 * 4 ^ 5 + 1
 
 three :: Int
 three = ((2 ^ 2) * (4 ^ 5)) + 1
 
 ----------------------------
--- Equivalent expressions --
+-- Equivalent Expressions --
 ----------------------------
+-- Which pairs bear equivalent results
 
--- Which of the following pairs of expressions will return the same
--- result when evaluated?
+-------
+-- 1 --
+-------
+-- a) 2
+-- b) 1 + 1
 
--- 1.
--- 2
--- 1 + 1
+-- Equal
+-- a = b = 2
 
--- True
+-------
+-- 2 --
+-------
+-- a) 10 ^ 2
+-- b) 10 + 9 * 10
 
--- 2.
--- 10 ^ 2
--- 10 + 9 * 10
+-- Equal
+-- a = b = 100
 
--- True
+-------
+-- 3 --
+-------
+-- a) 400 - 37
+-- b) (-) 37 400
 
--- 3.
--- 400 - 37
--- (-) 37 400
+-- Unequal
+-- a = 363
+-- b = -363
 
--- False
+-------
+-- 4 --
+-------
+-- a) 100 / 3
+-- b) 100 `div` 3
 
--- 4.
--- 100 / 3
--- 100 `div` 3
+-- Unequal
+-- a = 33.33
+-- b = 33
 
--- False
+-------
+-- 5 --
+-------
+-- a) 2 * 5 + 18
+-- b) 2 * (5 + 18)
 
--- 5.
--- 2 * 5 + 18
--- 2 * (5 + 18)
+-- Unequal
+-- a = 28
+-- b = 46
 
--- False
-
------------------------------
--- More fun with functions --
------------------------------
-
+----------------------
+-- Fun w/ Functions --
+----------------------
 -- z     = 7
 -- y     = z + 8
 -- x     = y ^ 2
 -- waxOn = x * 5
 
--- 1.
--- Now, you have a value called waxOn in your REPL. What do you
--- think will happen if you enter:
+-------
+-- 1 --
+-------
+-- Provide the results of the following
 
 -- 10 + waxOn
 
@@ -90,20 +110,10 @@ three = ((2 ^ 2) * (4 ^ 5)) + 1
 
 -- 1110
 
--- 2.
--- Enter the triple function:
-
--- triple x = x * 3
-
--- 3.
--- Now, what will happen if we enter this at our GHCi prompt?
--- triple waxOn
-
--- 1125 * 3 = 3375
-
--- 4.
--- Rewrite waxOn as an expression with a where clause in your source
--- file.
+-------
+-- 2 --
+-------
+-- Rewrite waxOn with a where clause
 
 z = 7
 x = y ^ 2
@@ -115,32 +125,17 @@ waxOn = x * 5
               y = z + 8
               x = y ^ 2
 
--- 5.
--- To the same source file where you have waxOn, add the triple
--- function.
+-------
+-- 3 --
+-------
+-- Add the triple and waxOff functions
+-- and modify waxOff to do other operations
 
-triple :: Integer -> Integer
+triple :: Float -> Float
 triple x = x * 3
 
-tripleWaxOn :: Integer
-tripleWaxOn = triple waxOn
-
--- 6.
--- Now, without changing what you’ve done so far in that file, add
--- a new function called waxOff that looks like this:
--- waxOff x = triple x
-
+waxOff :: Float -> Float
 waxOff = triple
 
--- 7.
--- Load the source file into your REPL, and enter waxOff waxOn at
--- the prompt.
--- You now have a function, waxOff, that can be applied to a variety
--- of arguments—not just waxOn but any (numeric) value you want
--- to substitute for x. Play with that a bit. What is the result of
--- waxOff 10 or waxOff (-50)? Try modifying your waxOff function to
--- do something new—perhaps you want to first triple the x value
--- and then square it or divide it by 10.
-
-waxOffMod :: Integer -> Float
-waxOffMod x = fromInteger $ triple x ^ 2 `div` 10
+waxOffMod :: Float -> Float
+waxOffMod x = triple x ^ 2 / 10

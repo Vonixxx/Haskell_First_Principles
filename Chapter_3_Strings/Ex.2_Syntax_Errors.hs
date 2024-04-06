@@ -1,23 +1,29 @@
 -------------------
 -- Syntax Errors --
 -------------------
+-- Decide whether the following will compile
 
--- Read the syntax of the following functions, and decide whether it
--- will compile.
-
--- 1.
+-------
+-- 1 --
+-------
 -- ++ [1, 2, 3] [4, 5, 6]
 
+-- False
 one :: [Integer]
 one = (++) [1,2,3] [4,5,6]
 
--- 2.
+-------
+-- 2 --
+-------
 -- '<3' ++ ' Haskell'
 
+-- False
 two :: String
 two = "<3" ++ " Haskell"
 
--- 3.
+-------
+-- 3 --
+-------
 -- concat ["<3", " Haskell"]
 
 -- True
