@@ -2,7 +2,7 @@
 -- A Head Code --
 -----------------
 -- Determine what these
--- expressions will return
+-- expressions will return.
 
 -------
 -- 1 --
@@ -32,9 +32,9 @@
 -- let x = 3;
 --     y = 1000 in x + 3
 
-----------------------------------------------
--- Rewrite the following with where clauses --
-----------------------------------------------
+------------------------------
+-- Rewrite w/ Where Clauses --
+------------------------------
 
 -------
 -- 1 --

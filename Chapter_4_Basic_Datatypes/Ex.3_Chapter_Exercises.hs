@@ -57,7 +57,7 @@ lengthCustom = undefined
 -------
 -- 4 --
 -------
--- Fix the prior function using a different operator
+-- Fix the prior function using a different operator.
 
 four :: Int
 four = 6 `div` length [1,2,3]
@@ -118,7 +118,7 @@ b x = x + 3 == 5
 -------
 -- 8 --
 -------
--- Write a function that tells you whether or not a given 
+-- Write a function that tells you whether or not a given
 -- String is a palindrome. Use the following: reverse :: [a] -> [a]
 
 eight :: (Eq a) => [a] -> Bool

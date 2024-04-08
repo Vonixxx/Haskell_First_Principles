@@ -6,7 +6,7 @@
 -- 1 --
 -------
 -- Use these functions in
--- some experimental expressions
+-- some experimental expressions.
 -- half   x = x / 2
 -- square x = x * x
 
@@ -20,7 +20,7 @@ one = half 15 - square 20
 -- 2 --
 -------
 -- Write a one-parameter function that
--- works for all the following expressions
+-- works for all the following expressions.
 -- 3.14 * (5 * 5)
 -- 3.14 * (2 * 2)
 -- 3.14 * (4 * 4)
@@ -33,7 +33,7 @@ two x = 3.14 * (x * x)
 -- 3 --
 -------
 -- Rewrite the function to use pi
--- (Prelude value) instead of 3.14
+-- (Prelude value) instead of 3.14.
 
 two' :: Float -> Float
 two' x = pi * (x * x)

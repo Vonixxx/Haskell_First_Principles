@@ -1,7 +1,7 @@
 -------------------
 -- Heal the Sick --
 -------------------
--- Fix the broken functions
+-- Fix the broken functions.
 
 -------
 -- 1 --

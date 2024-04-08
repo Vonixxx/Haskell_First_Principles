@@ -9,7 +9,7 @@
 -------
 -- 1 --
 -------
--- Are the following written correctly
+-- Are the following written correctly?
 
 -- a) concat [[1, 2, 3], [4, 5, 6]]
 
@@ -53,7 +53,7 @@ g = take 4 "lovely"
 -- 2 --
 -------
 -- Read the code, and figure out which
--- results come from which lines of code
+-- results come from which lines of code.
 
 -- a) concat [[1 * 6], [2 * 6], [3 * 6]]
 -- b) "rain" ++ drop 2 "elbow"
@@ -83,7 +83,7 @@ g = take 4 "lovely"
 -- 1 --
 -------
 -- Write functions that take the given
--- inputs and return the expected outputs
+-- inputs and return the expected outputs.
 
 -- a) Given: "Curry is awesome"
 --    Return:"Curry is awesome!"
@@ -107,7 +107,7 @@ c = drop 9 "Curry is awesome!"
 -- 2 --
 -------
 -- Rewrite the above as general functions
--- that can take different inputs, yet retain the same behavior
+-- that can take different inputs, yet retain the same behavior.
 
 a' :: String -> String
 a' xs = xs ++ "!"
@@ -122,7 +122,7 @@ c' = drop 9
 -- 3 --
 -------
 -- Write a function of type String -> Char
--- that returns the third character of that String
+-- that returns the third character of that String.
 
 three :: String -> Char
 three xs = xs !! 3
@@ -131,7 +131,7 @@ three xs = xs !! 3
 -- 4 --
 -------
 -- Change the above function so that the string operated on is always
--- the same and the variable represents the n-th letter to be returned
+-- the same and the variable represents the n-th letter to be returned.
 
 four :: Int -> Char
 four x = "Haskell is Amazing!" !! x
@@ -140,7 +140,7 @@ four x = "Haskell is Amazing!" !! x
 -- 5 --
 -------
 -- Write a function that takes the string "Curry is awesome"
--- and returns the result "awesome is Curry", using take and drop
+-- and returns the result "awesome is Curry", using take and drop.
 
 five :: String
 five = drop 9 xs ++ " is " ++ take 5 xs

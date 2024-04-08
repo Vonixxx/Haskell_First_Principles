@@ -1,7 +1,7 @@
 ---------------------------------
 -- Parentheses and Association --
 ---------------------------------
--- Decide whether the parentheses change the results
+-- Decide whether the parentheses change the results.
 
 -------
 -- 1 --

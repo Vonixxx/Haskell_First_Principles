@@ -1,13 +1,13 @@
 -----------------
 -- Mood Swings --
 -----------------
--- Given this datatype, answer the following questions
+-- Given this datatype, answer the following questions.
 data Mood = Blah | Woot deriving Show
 
 -------
 -- 1 --
 -------
--- What is the type constructor
+-- What is the type constructor?
 
 -- Mood
 
@@ -15,7 +15,7 @@ data Mood = Blah | Woot deriving Show
 -- 2 --
 -------
 -- If the function requires a value
--- what are possible values as input
+-- what are possible values as input?
 
 -- Either Blah or Woot
 

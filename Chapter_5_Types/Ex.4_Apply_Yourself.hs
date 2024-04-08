@@ -8,7 +8,9 @@
 -- may have become concrete, or at least less polymorphic. Figure out
 -- how the type would change and why.
 
--- 1.
+-------
+-- 1 --
+-------
 -- General function:
 -- (++) :: [a] -> [a] -> [a]
 -- Applied to a value:
@@ -16,7 +18,9 @@
 
 -- (++) :: [Char] -> [Char] -> [Char]
 
--- 2.
+-------
+-- 2 --
+-------
 -- General function:
 -- (*) :: Num a => a -> a -> a
 -- Applied to a value:
@@ -24,7 +28,9 @@
 
 -- (*) :: Fractional a => a -> a -> a
 
--- 3.
+-------
+-- 3 --
+-------
 -- General function:
 -- take :: Int -> [a] -> [a]
 -- Applied to a value:
@@ -32,7 +38,9 @@
 
 -- take :: Int -> [Char] -> [Char]
 
--- 4.
+-------
+-- 4 --
+-------
 -- General function:
 -- (>) :: Ord a => a -> a -> Bool
 -- Applied to a value:
@@ -40,7 +48,9 @@
 
 -- (>) :: Int -> Int -> Bool
 
--- 5.
+-------
+-- 5 --
+-------
 -- General function:
 -- (<) :: Ord a => a -> a -> Bool
 -- Applied to a value:

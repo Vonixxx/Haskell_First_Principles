@@ -2,7 +2,7 @@
 -- Parenthesization --
 ----------------------
 -- Parenthesize the following
--- without changing the results
+-- without changing the results.
 
 -------
 -- 1 --
@@ -31,7 +31,7 @@ three = ((2 ^ 2) * (4 ^ 5)) + 1
 ----------------------------
 -- Equivalent Expressions --
 ----------------------------
--- Which pairs bear equivalent results
+-- Which pairs bear equivalent results?
 
 -------
 -- 1 --
@@ -92,7 +92,7 @@ three = ((2 ^ 2) * (4 ^ 5)) + 1
 -------
 -- 1 --
 -------
--- Provide the results of the following
+-- Provide the results of the following.
 
 -- 10 + waxOn
 
@@ -113,7 +113,7 @@ three = ((2 ^ 2) * (4 ^ 5)) + 1
 -------
 -- 2 --
 -------
--- Rewrite waxOn with a where clause
+-- Rewrite waxOn with a where clause.
 
 z = 7
 x = y ^ 2
@@ -129,7 +129,7 @@ waxOn = x * 5
 -- 3 --
 -------
 -- Add the triple and waxOff functions
--- and modify waxOff to do other operations
+-- then modify waxOff to do other operations.
 
 triple :: Float -> Float
 triple x = x * 3

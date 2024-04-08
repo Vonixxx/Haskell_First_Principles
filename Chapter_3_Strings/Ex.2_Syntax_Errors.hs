@@ -1,14 +1,14 @@
 -------------------
 -- Syntax Errors --
 -------------------
--- Decide whether the following will compile
+-- Decide whether the following will compile.
 
 -------
 -- 1 --
 -------
 -- ++ [1, 2, 3] [4, 5, 6]
 
--- False
+-- Incorrect
 one :: [Integer]
 one = (++) [1,2,3] [4,5,6]
 
@@ -17,7 +17,7 @@ one = (++) [1,2,3] [4,5,6]
 -------
 -- '<3' ++ ' Haskell'
 
--- False
+-- Incorrect
 two :: String
 two = "<3" ++ " Haskell"
 
@@ -26,4 +26,4 @@ two = "<3" ++ " Haskell"
 -------
 -- concat ["<3", " Haskell"]
 
--- True
+-- Correct

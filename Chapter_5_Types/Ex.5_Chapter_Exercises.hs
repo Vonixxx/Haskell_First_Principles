@@ -147,7 +147,7 @@
 -- bigNum = (^) 5 $ 10
 -- wahoo = bigNum $ 10
 
--- Doesn't compile
+-- Incorrect
 -- Reason: bigNum does not await another argument, yet one is given
 
 bigNum = (^) 5 $ 10
@@ -160,7 +160,7 @@ wahoo  = bigNum
 -- y = print "woohoo!"
 -- z = x "hello world"
 
--- Compiles
+-- Correct
 
 -------
 -- 3 --
@@ -170,7 +170,7 @@ wahoo  = bigNum
 -- c = b 10
 -- d = c 200
 
--- Doesn't compile
+-- Incorrect
 -- Reason: c and d have no operator
 
 a = (+)
@@ -184,7 +184,7 @@ d = a c 200
 -- a' = 12 + bTwo
 -- b' = 10000 * cTwo
 
--- Doesn't compile
+-- Incorrect
 -- Reason: c is undefined
 
 c' = 3
@@ -401,8 +401,8 @@ sing = if 2 > 1
 -------
 -- 2 --
 -------
--- Now that it’s fixed, make a minor change so that it sings the
--- other song.
+-- Make a minor change so
+-- that it sings the other song.
 
 fstString' :: String -> String
 fstString' xs = xs ++ " in the rain"
@@ -446,12 +446,12 @@ sing' = fstString' xs ++ sndString' ys
 -- f = undefined
 
 -- g :: (Blah, Woot) -> (Blah, Blah)
--- g = undefined
+-- g = ???
 
 -- Above, it’s the function g that you’re supposed to implement.
 -- You’re only allowed to use type checking and type inference to validate your answers.
--- Example of a valid solution:
 
+-- Example of a valid solution:
 -- g :: (Blah, Woot) -> (Blah, Blah)
 -- g (b, w) = (b, f w)
 
