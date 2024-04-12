@@ -1,47 +1,49 @@
 -----------
 -- Scope --
------------
+-----------------------------
+-- Verify if the required  --
+-- variables are in scope. --
+-----------------------------
 
 -------
 -- 1 --
--------
--- Is y in scope for z?
-
--- Prelude> x = 5
--- Prelude> y = 7
--- Prelude> z = x * y
+------------------
+-- λ> x = 5     --
+-- λ> y = 7     --
+-- λ> z = x * y --
+------------------
 
 -- Yes
 
 -------
 -- 2 --
--------
--- Is h in scope for g?
-
--- Prelude> f = 3
--- Prelude> g = 6 * f + h
+----------------------
+-- λ> f = 3         --
+-- λ> g = 6 * f + h --
+----------------------
 
 -- No
 -- Reason: h is undefined
 
 -------
 -- 3 --
--------
--- Is everything we need to execute in scope?
--- r      = d / 2
--- three d = pi * (r * r)
+----------------------------
+-- r      = d / 2         --
+-- three d = pi * (r * r) --
+----------------------------
 
 -- No
 -- Reason: no where clause
-three :: Float -> Float
+
+three :: Floating a => a -> a
 three d = pi * (r * r)
           where r = d / 2
 
 -------
 -- 4 --
--------
--- Are r and d in scope?
--- four d = pi * (r * r)
---          where r = d / 2
+------------------------------
+-- four d = pi * (r * r)    --
+--          where r = d / 2 --
+------------------------------
 
 -- Yes

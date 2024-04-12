@@ -1,29 +1,38 @@
 -------------------
 -- Syntax Errors --
--------------------
--- Decide whether the following will compile.
+---------------------------------
+-- Will the following compile? --
+---------------------------------
 
 -------
 -- 1 --
--------
--- ++ [1, 2, 3] [4, 5, 6]
+----------------------------
+-- ++ [1, 2, 3] [4, 5, 6] --
+----------------------------
 
--- Incorrect
-one :: [Integer]
+-- No.
+-- Reason: (++) is infix by default, to make it
+-- prefix one needs to encase it in parentheses.
+
+one :: Num a => [a]
 one = (++) [1,2,3] [4,5,6]
 
 -------
 -- 2 --
--------
--- '<3' ++ ' Haskell'
+------------------------
+-- '<3' ++ ' Haskell' --
+------------------------
 
--- Incorrect
+-- No.
+-- Reason: they are formatted as Char with ''
+-- they ought to be formatted as String using "".
 two :: String
 two = "<3" ++ " Haskell"
 
 -------
 -- 3 --
--------
--- concat ["<3", " Haskell"]
+-------------------------------
+-- concat ["<3"," Haskell"] --
+-------------------------------
 
--- Correct
+-- Yes.
