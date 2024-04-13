@@ -4,50 +4,61 @@
 
 -------
 -- 1 --
--------
--- Which (two or more) of the following are equivalent?
--- a) mTh x y z = x * y * z
--- b) mTh x y = \z -> x * y * z
--- c) mTh x = \y -> \z -> x * y * z
--- d) mTh = \x -> \y -> \z -> x * y * z
+----------------------------------------------------------
+-- Which (two or more) of the following are equivalent? --
+----------------------------------------------------------
+-- a) one x y z = x * y * z             --
+-- b) one x y = \z -> x * y * z         --
+-- c) one x = \y -> \z -> x * y * z     --
+-- d) one = \x -> \y -> \z -> x * y * z --
+------------------------------------------
 
--- All of the above
+-- All of the above.
 
 -------
 -- 2 --
--------
--- The type of mTh is Num a => a -> a -> a -> a.
--- Which is the type of mTh 3?
--- a) Integer -> Integer -> Integer
--- b) Num a => a -> a -> a -> a
--- c) Num a => a -> a
--- d) Num a => a -> a -> a
+--------------------------------------
+-- two :: Num a => a -> a -> a -> a --
+-- λ> two 3                         --
+--------------------------------------
+-- a) Num a => a -> a               --
+-- b) Num a => a -> a -> a          --
+-- c) Num a => a -> a -> a -> a     --
+-- d) Integer -> Integer -> Integer --
+--------------------------------------
 
--- d
+-- b
 
 -------
 -- 3 --
--------
--- Rewrite using lambda.
--- Example: addOne x = x + 1
---          addOne = \x -> x + 1
+---------------------------------
+-- Add and remove the lambdas. --
+-----------------------------------------
+-- a) threeA n = case odd n of         --
+--                   True  -> f n      --
+--                   False -> n        --
+--                   where f n = n + 1 --
+                                       --
+-- b) threeB x y = (if x > y           --
+--                    then y           --
+--                    else x) + 5      --
+                                       --
+-- c) threeC f = \x -> \y -> f y x     --
+-----------------------------------------
 
--- a) a n = case odd n of
---                        True -> f n
---                        False -> n
---                        where f n = n + 1
+-- a)
 
-a :: Int -> Int
-a = \x -> x + 1
+threeA :: Num a => a -> a
+threeA = \x -> x + 1
 
--- b) b x y = (if x > y then y else x) + 5
+-- b)
 
-b :: Int -> Int -> Int
-b = \x -> \y -> (if x > y
-                   then y
-                   else x) + 5
+threeB :: Num a => a -> a -> a
+threeB = \x -> \y -> (if x > y
+                        then y
+                        else x) + 5
 
--- c) Remove the lambda.
---    c f = \x -> \y -> f y x
+-- c)
 
-c x y f = f y x
+threeC :: a -> a -> (a -> a -> b) -> b
+threeC x y f = f y x
