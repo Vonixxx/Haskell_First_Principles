@@ -3,344 +3,386 @@
 -----------------------
 
 ---------------------
--- Multiple choice --
+-- Multiple Choice --
 ---------------------
 
 -------
 -- 1 --
--------
--- The Eq class
--- a) includes all types in Haskell.
--- b) is the same as the Ord class.
--- c) makes equality tests possible.
--- d) only includes numeric types.
+--------
+-- Eq --
+---------------------------------------
+-- a) Only includes numeric types.   --
+-- b) Is the same as the Ord class.  --
+-- c) Includes all types in Haskell. --
+-- d) Makes equality tests possible. --
+---------------------------------------
 
--- c
+-- d
 
 -------
 -- 2 --
--------
--- The type class Ord
--- a) allows any two values to be compared.
--- b) is a subclass of Eq.
--- c) is a superclass of Eq.
--- d) has no instance for Bool.
-
--- b
-
--------
--- 3 --
--------
--- Suppose the type class Ord has an operator >. What is the type
--- of >?
--- a) Ord a => a -> a -> Bool
--- b) Ord a => Int -> Bool
--- c) Ord a => a -> Char
--- d) Ord a => Char -> [Char]
+---------
+-- Ord --
+----------------------------------------------
+-- a) Is a subclass of Eq.                  --
+-- b) Is a superclass of Eq.                --
+-- c) Has no instance for Bool.             --
+-- d) Allows any two values to be compared. --
+----------------------------------------------
 
 -- a
 
 -------
--- 4 --
+-- 3 --
+---------
+-- (>) --
+--------------------------------
+-- a) Ord a => a -> Char      --
+-- b) Ord a => Int -> Bool    --
+-- c) Ord a => a -> a -> Bool --
+-- d) Ord a => Char -> [Char] --
+--------------------------------
+
+-- c
+
 -------
--- In x = divMod 16 12
--- a) the type of x is Integer.
--- b) the value of x is undecidable.
--- c) the type of x is a tuple.
--- d) x is equal to 12 / 16.
+-- 4 --
+----------------------
+-- x = divMod 16 12 --
+---------------------------------------
+-- a) x is equal to 12 / 16.         --
+-- b) The type of x is Integer.      --
+-- c) The type of x is a tuple.      --
+-- d) The value of x is undecidable. --
+---------------------------------------
 
 -- c
 
 -------
 -- 5 --
--------
--- The type class Integral includes
--- a) Int and Integer numbers.
--- b) integral, real, and fractional numbers.
--- c) Schrodinger’s cat.
--- d) only positive numbers.
+------------------------
+-- Integral includes? --
+------------------------------------------------
+-- a) Schrodinger’s cat.                      --
+-- b) Only positive numbers.                  --
+-- c) Int and Integer numbers.                --
+-- d) Integral, real, and fractional numbers. --
+------------------------------------------------
 
--- a
+-- c
 
 -------------------------
 -- Does it Type Check? --
--------------------------
--- Here you'll be practicing
--- looking for type and type class errors.
--- Example: printIt will not work,
--- because x has no instance of Show.
-
--- x :: Int -> Int
--- x blah = blah + 20
-
--- printIt :: IO ()
--- printIt = putStrLn (show x)
-
--- The type error:
--- • No instance for (Show (Int -> Int))
--- arising from a use of ‘show’
+--------------------------------------------
+-- x :: Int -> Int                        --
+-- x blah = blah + 20                     --
+--                                        --
+-- printIt :: IO ()                       --
+-- printIt = putStrLn (show x)            --
+--                                        --
+-- λ> printIt                             --
+-- λ> No instance for (Show (Int -> Int)) --
+--    arising from a use of ‘show’        --
+--------------------------------------------
 
 -------
 -- 1 --
--------
--- data Person = Person Bool
-
--- printPerson :: Person -> IO ()
--- printPerson person = putStrLn (show person)
+-------------------------------------------------
+-- data Person = Person Bool                   --
+--                                             --
+-- printPerson :: Person -> IO ()              --
+-- printPerson person = putStrLn (show person) --
+-------------------------------------------------
 
 newtype Person = Person Bool
  deriving Show
 
 printPerson :: Person -> IO()
-printPerson person = putStrLn (show person)
+printPerson = print
 
 -------
 -- 2 --
--------
--- data Mood = Blah | Woot
---  deriving Show
-
--- settleDown x = if x == Woot
---                  then Blah
---                  else x
+---------------------------------
+-- data Mood = Blah | Woot     --
+--  deriving Show              --
+--                             --
+-- settleDown x = if x == Woot --
+--                  then Blah  --
+--                  else x     --
+---------------------------------
 
 data Mood = Blah | Woot
- deriving (Eq,Show)
+ deriving ( Eq
+          , Show )
 
+settleDown :: Mood -> Mood
 settleDown x = if x == Woot
-                   then Blah
-                   else x
+                 then Blah
+                 else x
 
 -------
 -- 3 --
--------
--- If SettleDown now type checks:
--- a) What values are acceptable inputs to that function?
--- b) What will happen if you try to run settleDown 9? Why?
--- c) What will happen if you try to run Blah > Woot? Why?
+----------------------------------------------------------------
+-- a) What values are acceptable inputs to settleDown?        --
+-- b) What happens when doing Blah > Woot? Why is that?       --
+-- c) What happens if the input is settleDown 9? Why is that? --
+----------------------------------------------------------------
 
--- a) Either Blah or Woot
+-- a) Either Blah or Woot.
 
--- b) No Instance for (Num Mood), this is
--- because the deriving clause has no instance of Num
+-- b) No Instance for (Ord Mood), this is because
+--    the deriving clause has no instance of Ord.
 
--- c) No Instance for (Ord Mood), this is
--- because the deriving clause has no instance of Ord
+-- c) No Instance for (Num Mood), this is because
+--    the deriving clause has no instance of Num.
 
 -------
 -- 4 --
--------
--- type Subject = String
--- type Verb = String
--- type Object = String
-
--- data Sentence = Sentence Subject Verb Object
---  deriving (Eq, Show)
-
--- s1 = Sentence "dogs" "drool"
--- s2 = Sentence "Julie" "loves" "dogs"
+--------------------------------------------------
+-- type Verb    = String                        --
+-- type Object  = String                        --
+-- type Subject = String                        --
+--                                              --
+-- data Sentence = Sentence Subject Verb Object --
+--  deriving (Eq, Show)                         --
+                                                --
+-- s1 = Sentence "dogs" "drool"                 --
+-- s2 = Sentence "Julie" "loves" "dogs"         --
+--------------------------------------------------
 
 type Verb    = String
 type Object  = String
 type Subject = String
 
 data Sentence = Sentence Subject Verb Object
- deriving (Eq, Show)
+ deriving ( Eq
+          , Show )
 
 s1 = Sentence "dogs" "drool" "lots"
 s2 = Sentence "Julie" "loves" "dogs"
 
 ---------------------------
 -- Datatype Declarations --
----------------------------
--- Which of the following will type check,
--- given the following datatype definitions:
+-----------------------------------------------
+-- Which of the following will type check,   --
+-- given the following datatype definitions. --
+-----------------------------------------------
 
 newtype Yeah = Yeah Bool
- deriving (Eq, Show)
+ deriving ( Eq
+          , Show )
 
 data Papu = Papu Rocks Yeah
- deriving (Eq, Show)
+ deriving ( Eq
+          , Show )
 
 newtype Rocks = Rocks String
- deriving (Eq, Show)
+ deriving ( Eq
+          , Show )
 
 -------
 -- 1 --
--------
--- one = Papu "chases" True
-
--- Incorrect
+------------------------------
+-- one = Papu "chases" True --
+------------------------------
 
 one :: Papu
 one = Papu (Rocks "chases") (Yeah True)
 
 -------
 -- 2 --
--------
--- two = Papu (Rocks "chomskydoz") (Yeah True)
+-------------------------------------------------
+-- two = Papu (Rocks "chomskydoz") (Yeah True) --
+-------------------------------------------------
 
--- Correct
+-- Correct.
 
 -------
 -- 3 --
--------
--- three :: Papu -> Papu -> Bool
--- three p p' = p == p'
+-----------------------------------
+-- three :: Papu                 --
+--       -> Papu                 --
+--       -> Bool                 --
+-- three p p' = p == p'          --
+-----------------------------------
 
--- Correct
+-- Correct.
 
 -------
 -- 4 --
--------
--- four :: Papu -> Papu -> Bool
--- four p p' = p > p'
+------------------------
+-- four :: Papu       --
+--      -> Papu       --
+--      -> Bool       --
+-- four p p' = p > p' --
+------------------------
 
--- Incorrect
--- Reason: No Instance for (Ord Papu), this is
--- because the deriving clause has no instance of Ord
+-- Incorrect.
+-- Reason: No Instance for (Ord Papu), this is because
+--         the deriving clause has no instance of Ord.
 
 ---------------------
 -- Match the Types --
----------------------
--- You'll be given two types and their implementations.
--- Substitute the second type for the first. Is it still valid?
+-------------------------------------------------------
+-- You're given two types and their implementations. --
+-- Substitute the second for the first. Still valid? --
+-------------------------------------------------------
 
 -------
 -- 1 --
--------
--- a) one :: Num a => a
--- b) one :: a
--- one = 1
+--------------------------
+-- a) one :: Num a => a --
+-- b) one :: a          --
+-- λ> one = 1           --
+--------------------------
 
--- Incorrect
--- b needs a Num instance
+-- Incorrect.
+-- Reason: λ> No Instance for (Num a)
 
 -------
 -- 2 --
--------
--- a) two :: Float
--- b) two :: Num a => a
--- two = 1.0
+--------------------------
+-- a) two :: Float      --
+-- b) two :: Num a => a --
+-- λ> two = 1.0         --
+--------------------------
 
--- Correct
--- Reason: Num is a superclass of Float
+-- Incorrect.
+-- Reason: the initial type class constraint is Fractional => a
+--         it cannot become a more lenient constraint like Num a => a.
 
 -------
 -- 3 --
--------
--- a) three :: Float
--- b) three :: Fractional a => a
--- three = 1.0
+-----------------------------------
+-- a) three :: Float             --
+-- b) three :: Fractional a => a --
+-- λ> three = 1.0                --
+-----------------------------------
 
--- Correct
--- Reason: Fractional is a superclass of Float
+-- Correct.
+-- Reason: Float belongs to the Fractional a => a superclass.
 
 -------
 -- 4 --
--------
--- a) four :: Float
--- b) four :: RealFrac a => a
--- four = 1.0
+--------------------------------
+-- a) four :: Float           --
+-- b) four :: RealFrac a => a --
+-- λ> four = 1.0              --
+--------------------------------
 
--- Correct
--- Reason: RealFrac is a superclass of Float
+-- Correct.
+-- Reason: Float belongs to the RealFrac a => a superclass.
 
 -------
 -- 5 --
--------
--- a) five :: a -> a
--- b) five :: Ord a => a -> a
--- five x = x
+--------------------------------
+-- a) five :: a -> a          --
+-- b) five :: Ord a => a -> a --
+-- λ> five x = x              --
+--------------------------------
 
--- Incorrect
--- Reason: b is no longer maximally polymorphic,
--- solely values constrained by the Ord type class are valid
+-- Correct.
+-- Reason: the type becomes more specific.
 
 -------
 -- 6 --
--------
--- a) six :: a -> a
--- b) six :: Int -> Int
--- six x = x
+--------------------------
+-- a) six :: a -> a     --
+-- b) six :: Int -> Int --
+-- λ> six x = x         --
+--------------------------
 
--- Incorrect
--- Reason: b no longer maximally polymorphic,
--- solely values constrained by the Int type are valid
+-- Correct.
+-- Reason: the type becomes more specific.
 
 -------
 -- 7 --
--------
--- a) seven :: Int -> Int
--- b) seven :: a -> a
--- oneInt = 1 :: Int
--- seven x = oneInt
+----------------------------
+-- a) seven :: Int -> Int --
+-- b) seven :: a -> a     --
+-- λ> x = (1 :: Int)      --
+-- λ> seven x = x         --
+----------------------------
 
--- Incorrect
--- b needs a Num instance
+-- Incorrect.
+-- Reason: by constraining the type of x, `seven` cannot be made more generic.
 
 -------
 -- 8 --
--------
--- a) oneInt = 1 :: Int
---    eight :: Int -> Int
--- b) eight :: Num a => a -> a
--- eight x = myX
+---------------------------------
+-- a) eight :: Int -> Int      --
+-- b) eight :: Num a => a -> a --
+-- λ> x = (1 :: Int)           --
+-- λ> eight x = x              --
+---------------------------------
 
--- Correct
--- Reason: Num is a superclass of Int
+-- Incorrect.
+-- Reason: by constraining the type of x, `eight` cannot be made more generic.
 
 -------
 -- 9 --
--------
--- a) nine :: Ord a => [a] -> a
--- b) nine :: [Int] -> Int
--- nine xs = head (sort xs)
+----------------------------------
+-- a) nine :: Ord a => [a] -> a --
+-- b) nine :: [Int] -> Int      --
+-- λ> nine xs = head (sort xs)  --
+----------------------------------
 
--- Correct
--- Reason: Ord has an instance of Int
+-- Correct.
+-- Reason: Int has an instance of Ord.
 
 --------
 -- 10 --
---------
--- a) ten :: [Char] -> Char
--- b) ten :: Ord a => [a] -> a
--- ten xs = head (sort xs)
+---------------------------------
+-- a) ten :: [Char] -> Char    --
+-- b) ten :: Ord a => [a] -> a --
+-- λ> ten xs = head (sort xs)  --
+---------------------------------
 
--- Correct
--- Reason: Ord has an instance of Char
+-- Correct.
+-- Reason: `sort` requires Ord a => [a], head requires [a].
 
 --------
 -- 11 --
---------
--- a) eleven :: [Char] -> Char
--- b) eleven :: Ord a => [a] -> a
--- mySort :: [Char] -> [Char]
--- mySort = sort
--- eleven xs = head (mySort xs)
+-------------------------------------
+-- a) eleven :: [Char] -> Char     --
+-- b) eleven :: Ord a => [a] -> a  --
+-- λ> mySort :: [Char] -> [Char]   --
+-- λ> mySort = sort                --
+-- λ> eleven xs = head (mySort xs) --
+-------------------------------------
 
--- Correct
--- Reason: Ord has an instance of Char
+-- Correct.
+-- Reason: the initial constraint is [Char], it cannot
+--         become a more lenient constraint like Ord a => [a].
 
 ----------------------
 -- Type-Kwon-Do Two --
 ----------------------
--- Same rules as the previous segment of Type-Kwon-Do.
 
 -------
 -- 1 --
--------
--- one :: Eq b => (a -> b) -> a -> b -> Bool
--- one = ???
+-----------------------------------------------
+-- one' :: Eq b => (a -> b) -> a -> b -> Bool --
+-- one' = ???                                 --
+-----------------------------------------------
 
-one' :: Eq b => (a -> b) -> a -> b -> Bool
+one' :: Eq b
+     => (a -> b)
+     -> a
+     -> b
+     -> Bool
 one' aToB a b = aToB a == b
 
 -------
 -- 2 --
--------
--- two :: Num b => (a -> b) -> Integer -> a -> b
--- two = ???
+---------------------
+-- two :: Num b    --
+--     => (a -> b) --
+--     -> Integer  --
+--     -> a        --
+--     -> b        --
+-- two = ???       --
+---------------------
 
 two:: Num b => (a -> b) -> Integer -> a -> b
 two aToB int = aToB

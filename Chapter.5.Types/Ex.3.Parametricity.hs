@@ -4,8 +4,10 @@
 
 -------
 -- 1 --
--------
--- This has only two implementations. Write both possible versions of a -> a -> a.
+--------------------------------------------------
+-- This only has two implementations.           --
+-- Write both possible versions of a -> a -> a. --
+--------------------------------------------------
 
 first :: a -> a -> a
 first = undefined
@@ -15,11 +17,13 @@ second = undefined
 
 -------
 -- 2 --
--------
--- Implement a -> b -> b. How many implementations can it
--- have? Does its behavior change when the types of a and b change?
+-------------------------------------------------------------------
+-- Implement a -> b -> b.                                        --
+-- a) How many implementations are there?                        --
+-- b) Does its behavior change when the types of a and b change? --
+-------------------------------------------------------------------
 
--- Two implementations
+-- a)
 
 first' :: b -> b -> b
 first' = undefined
@@ -27,10 +31,7 @@ first' = undefined
 second' :: a -> b -> b
 second' = undefined
 
--- Behaviour is unchanging regardless of the types
+-- b)
 
-first'' :: Int -> Int -> Int
-first'' = undefined
-
-second'' :: Int -> String -> String
+second'' :: (Num a,Ord b) => a -> b -> b
 second'' = undefined

@@ -1,12 +1,14 @@
 ------------------
 -- Eq Instances --
-------------------
--- Write the Eq instances for the datatypes provided.
+--------------------------------------------------------
+-- Write the Eq instances for the datatypes provided. --
+--------------------------------------------------------
 
 -------
 -- 1 --
--------
--- data OneInteger = One Integer
+-----------------------------------
+-- data OneInteger = One Integer --
+-----------------------------------
 
 newtype OneInteger = One Integer
 
@@ -15,8 +17,9 @@ instance Eq OneInteger where
 
 -------
 -- 2 --
--------
--- data TwoIntegers = Two Integer Integer
+--------------------------------------------
+-- data TwoIntegers = Two Integer Integer --
+--------------------------------------------
 
 data TwoIntegers = Two Integer Integer
 
@@ -25,20 +28,22 @@ instance Eq TwoIntegers where
 
 -------
 -- 3 --
--------
--- data StringOrInt = AnInt Int | AnString String
+----------------------------------------------------
+-- data StringOrInt = AnInt Int | AnString String --
+----------------------------------------------------
 
 data StringOrInt = AnInt Integer | AnString String
 
 instance Eq StringOrInt where
  AnInt    a == AnInt    a' = a == a'
  AnString a == AnString a' = a == a'
- _ == _ = False
+ _          == _           = False
 
 -------
 -- 4 --
--------
--- data Pair a = Pair a a
+----------------------------
+-- data Pair a = Pair a a --
+----------------------------
 
 data Pair a = Pair a a
 
@@ -47,8 +52,9 @@ instance Eq a => Eq (Pair a) where
 
 -------
 -- 5 --
--------
--- data Tuple a b = Tuple a b
+--------------------------------
+-- data Tuple a b = Tuple a b --
+--------------------------------
 
 data Tuple a b = Tuple a b
 
@@ -57,8 +63,9 @@ instance (Eq a, Eq b) => Eq (Tuple a b) where
 
 -------
 -- 6 --
--------
--- data Which a = ThisOne a | ThatOne a
+------------------------------------------
+-- data Which a = ThisOne a | ThatOne a --
+------------------------------------------
 
 data Which a = ThisOne a | ThatOne a
 
@@ -68,8 +75,9 @@ instance Eq a => Eq (Which a) where
 
 -------
 -- 7 --
--------
--- data EitherOr a b = Hello a | Goodbye b
+---------------------------------------------
+-- data EitherOr a b = Hello a | Goodbye b --
+---------------------------------------------
 
 data EitherOr a b = Hello a | Goodbye b
 
