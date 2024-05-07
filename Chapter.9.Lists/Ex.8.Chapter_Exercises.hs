@@ -199,8 +199,13 @@ five' (x:xs) = x ++ five' xs
 -- λ> "WO 1 HOO WO 2 HOO WO 3 HOO "         --
 ----------------------------------------------
 
+list = []
+
 six :: (a -> [b]) -> [a] -> [b]
-six fn xs = 
+six fn [] = []
+six fn xs
+    | length list == length xs = list
+    | otherwise = list ++ six fn (head xs)
 
 
 -- 7. squishAgain flattens a list of lists into a list. This time, re-use the
